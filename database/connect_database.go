@@ -17,7 +17,7 @@ func ConnectDatabase() {
 	}
 
 	// migrasi otomatis untuk tabel tanaman
-	err = db.AutoMigrate(&models.Tanaman{})
+	err = db.AutoMigrate(&models.Tanaman{}, &models.Wishlist{})
 	if err != nil {
 		panic("failed to migrate table")
 	}
