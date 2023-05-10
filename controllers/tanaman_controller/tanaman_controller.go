@@ -139,23 +139,21 @@ func Update(c *gin.Context) {
 	})
 }
 
-// delete: menghapus tanaman
 func Delete(c *gin.Context) {
-	var tanaman models.Tanaman
-	if err := c.ShouldBindJSON(&tanaman); err != nil {
-		if err.Error() == "EOF" {
-			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "data tidak ditemukan"})
-			return
-		}
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+	// mengambil id dari URL endpoint
+	id := c.Param("id")
+
+	// melakukan konversi tipe data dari string ke int
+	idInt, err := strconv.Atoi(id)
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "id tanaman tidak valid"})
 		return
 	}
 
-	if tanaman.Id == 0 {
-		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "id tanaman harus diisi"})
-		return
-	}
+	// membuat objek tanaman untuk dihapus
+	tanaman := models.Tanaman{Id: idInt}
 
+	// melakukan penghapusan data dari database
 	result := database.DB.Delete(&tanaman)
 	if result.RowsAffected == 0 {
 		c.AbortWithStatusJSON(http.StatusNotFound, gin.H{"message": "data tidak ditemukan"})
@@ -170,11 +168,11 @@ func Delete(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "data berhasil dihapus"})
 }
 
-// Search mengambil semua tanaman berdasarkan nama tanaman
+// search: mengambil semua tanaman berdasarkan nama tanaman
 func Search(c *gin.Context) {
 	namaTanaman := c.Query("nama_tanaman")
 
-	// Memanggil service untuk mencari tanaman berdasarkan nama tanaman
+	// memanggil service untuk mencari tanaman berdasarkan nama tanaman
 	tanamans, err := services.FindByNamaTanaman(namaTanaman)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{

@@ -10,7 +10,8 @@ func main() {
 	r := gin.Default()
 	database.ConnectDatabase()
 
-	routes.SetupRoutes(r)
+	routes.SetupTanamanRoutes(r)
+	routes.SetupWishlistRoutes(r)
 
 	r.Use(ErrorHandler)
 

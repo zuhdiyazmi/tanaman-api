@@ -6,7 +6,7 @@ import (
 )
 
 // SetupRoutes menginisialisasi rute dan handler
-func SetupRoutes(r *gin.Engine) {
+func SetupTanamanRoutes(r *gin.Engine) {
 	r.GET("/api/tanamans", tanaman_controller.Index)
 	r.GET("/api/tanaman/:id", tanaman_controller.Show)
 	r.POST("/api/tanaman", tanaman_controller.Create)
