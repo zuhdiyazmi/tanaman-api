@@ -1,0 +1,13 @@
+go mod init github.com/zuhdiyazmi/alterra-mini-project.git
+go get github.com/gin/gonic/gin
+go get gorm.io/gorm
+go get gorm.io/driver/mysql
+
+mysql -u root p
+waduh
+create database go_tanaman;
+go run main.go
+
+go get -u github.com/golang-jwt/jwt/v4
+go get -u github.com/gorilla/mux
+go get -u golang.org/x/crypto
