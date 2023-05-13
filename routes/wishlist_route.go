@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/zuhdiyazmi/alterra-mini-project/controllers/wishlist_controller"
+	"github.com/zuhdiyazmi/go-tanaman/controllers/wishlist_controller"
 )
 
 // SetupRoutes menginisialisasi rute dan handler

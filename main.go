@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/zuhdiyazmi/alterra-mini-project/database"
-	"github.com/zuhdiyazmi/alterra-mini-project/routes"
+	"github.com/zuhdiyazmi/go-tanaman/database"
+	"github.com/zuhdiyazmi/go-tanaman/routes"
 )
 
 func main() {

@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/zuhdiyazmi/alterra-mini-project/database"
-	"github.com/zuhdiyazmi/alterra-mini-project/models"
+	"github.com/zuhdiyazmi/go-tanaman/database"
+	"github.com/zuhdiyazmi/go-tanaman/models"
 )
 
 func FindByNamaTanaman(namaTanaman string) ([]models.Tanaman, error) {

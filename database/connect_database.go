@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/zuhdiyazmi/alterra-mini-project/models"
+	"github.com/zuhdiyazmi/go-tanaman/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
